@@ -21,8 +21,8 @@ from mult_dae import MultiDAE
 from mult_vae import MultiVAE
 from preprocessor import Preprocessor
 
-DATA_DIR = 'E:/workspace/python/dm-project/movie-ratings/data/ml-20m/'
-LOG_DIR = 'E:/workspace/python/dm-project/movie-ratings/data/output/'
+DATA_DIR = 'data/ml-20m/'
+LOG_DIR = 'data/output/'
 raw_data = pd.read_csv(os.path.join(DATA_DIR, 'ratings.csv'), header=0)
 pro_dir = os.path.join(DATA_DIR, 'processed')
 
