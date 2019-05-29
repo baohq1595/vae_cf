@@ -19,11 +19,16 @@ import bottleneck as bn
 
 from mult_dae import MultiDAE
 from mult_vae import MultiVAE
+from preprocessor import Preprocessor
 
 DATA_DIR = 'E:/workspace/python/dm-project/movie-ratings/data/ml-20m/'
 LOG_DIR = 'E:/workspace/python/dm-project/movie-ratings/data/output/'
 raw_data = pd.read_csv(os.path.join(DATA_DIR, 'ratings.csv'), header=0)
-pro_dir = os.path.join(DATA_DIR, 'pro_sg')
+pro_dir = os.path.join(DATA_DIR, 'processed')
+
+# Create preprocessor that filter movies with rating less than 3.5 into not clicked by user
+preprocessor = Preprocessor(DATA_DIR, 3.5)
+preprocessor.process()
 
 unique_sid = list()
 with open(os.path.join(os.path.join(DATA_DIR, 'pro_sg'), 'unique_sid.txt'), 'r') as f:
